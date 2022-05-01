@@ -11,13 +11,15 @@ import RequireAuth from './Components/Login/RequireAuth/RequireAuth';
 import Login from './Components/Login/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import Register from './Components/Login/Register/Register';
+import Home from './Components/Home/Home/Home';
 function App() {
   return (
     <div className="App">
 
         <Header/>
         <Routes>
-          <Route path='/'></Route>
+          <Route path='/' element={<Home/>}></Route>
+
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
           <Route path='/inventory' element={
