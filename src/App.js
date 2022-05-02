@@ -12,6 +12,7 @@ import Login from './Components/Login/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import Register from './Components/Login/Register/Register';
 import Home from './Components/Home/Home/Home';
+import Blogs from './Components/Blogs/Blogs';
 function App() {
   return (
     <div className="App">
@@ -27,7 +28,7 @@ function App() {
               <Inventory/>
             </RequireAuth>
           }></Route>
-           
+           <Route path='/blogs' element={<Blogs/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
         <Footer/>

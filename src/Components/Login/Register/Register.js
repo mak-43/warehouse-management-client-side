@@ -36,7 +36,7 @@ const Register = () => {
         <div>
              <div className='form-container md:w-1/2 mx-auto py-10 my-10 sm:w-full'>
                 <form onSubmit={handleSubmit} className='flex flex-col w-1/2 mx-auto '>
-                <h1 className='text-3xl pb-5'>Please Sign Up</h1>
+                <h1 className='text-3xl p-3'>Please Sign Up</h1>
                     <input className='p-2 mb-2 rounded'  ref={nameRef} type="text" name="text" id="" placeholder='Name' />
                     <input className='p-2 mb-2 rounded'  ref={emailRef} type="email" name="email" id="" placeholder='Email' required />
                     <input className='p-2 mb-2 rounded'  ref={passwordRef} type="password" name="password" id="" placeholder='Password' required />
