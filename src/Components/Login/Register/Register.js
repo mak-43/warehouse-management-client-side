@@ -9,6 +9,7 @@ const Register = () => {
         error,
         loading
       ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+      
       const [signInWithGoogle,  gerror] = useSignInWithGoogle(auth);
       const [signInWithGithub,  giterror] = useSignInWithGithub(auth);
       const [updateProfile, ] = useUpdateProfile(auth);

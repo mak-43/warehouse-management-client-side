@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import Register from './Components/Login/Register/Register';
 import Home from './Components/Home/Home/Home';
 import Blogs from './Components/Blogs/Blogs';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App">
@@ -23,7 +24,7 @@ function App() {
 
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
-          <Route path='/inventory' element={
+          <Route path='/inventory/:id' element={
             <RequireAuth>
               <Inventory/>
             </RequireAuth>
@@ -32,7 +33,7 @@ function App() {
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
         <Footer/>
-        
+        <ToastContainer />
     </div>
   );
 }

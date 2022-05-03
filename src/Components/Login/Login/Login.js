@@ -39,7 +39,7 @@ const Login = () => {
     }
     let errorElement
     if (error || gerror || giterror) {
-        errorElement = <p className='text-red-700'>Error: {error?.message}{gerror?.message}{giterror?.message} </p>
+        errorElement = <p className='text-red-700'>{error?.message}{gerror.message}{giterror?.message} </p>
     }
     const resetPassword = async () => {
         if (email) {
