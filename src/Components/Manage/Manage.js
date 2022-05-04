@@ -3,7 +3,7 @@ import React from 'react';
 const Manage = () => {
     return (
         <div>
-            manage
+            manage inventories
         </div>
     );
 };

@@ -14,6 +14,7 @@ import Register from './Components/Login/Register/Register';
 import Home from './Components/Home/Home/Home';
 import Blogs from './Components/Blogs/Blogs';
 import 'react-toastify/dist/ReactToastify.css';
+import Manage from './Components/Manage/Manage';
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,11 @@ function App() {
           <Route path='/inventory/:id' element={
             <RequireAuth>
               <Inventory/>
+            </RequireAuth>
+          }></Route>
+          <Route path='/manage/:id' element={
+            <RequireAuth>
+              <Manage/>
             </RequireAuth>
           }></Route>
            <Route path='/blogs' element={<Blogs/>}></Route>

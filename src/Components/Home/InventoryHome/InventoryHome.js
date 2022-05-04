@@ -5,7 +5,7 @@ import Product from './Product/Product';
 
 const InventoryHome = () => {
     const [products,setProducts]=useProducts([])
-    console.log(products)
+    
     return (
         <div>
             Inventory {products.length}

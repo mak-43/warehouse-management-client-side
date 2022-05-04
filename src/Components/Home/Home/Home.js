@@ -6,7 +6,7 @@ import InventoryHome from '../InventoryHome/InventoryHome';
 const Home = () => {
     return (
         <div>
-           
+            <Banner/>
             <InventoryHome/>
         </div>
     );
