@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import useItem from '../Hooks/useItem';
 
 const Inventory = () => {
 
@@ -10,15 +11,9 @@ const Inventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     const { id } = useParams()
-    const [product, setProduct] = useState({})
-    
-    useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setProduct(data))
-
-    }, [product])
+ 
+    const [product, setProduct] = useItem(id)
+   
     
     const handleDelivered=e=>{
         const t=parseInt(product.quantity)

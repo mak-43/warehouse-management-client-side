@@ -8,7 +8,7 @@ const useProducts=()=>{
         .then(res=>res.json())
         .then(data=>setProducts(data))
         setLoading(false)
-    },[])
+    },[products])
     return [products,setProducts]
 }
 export default useProducts
