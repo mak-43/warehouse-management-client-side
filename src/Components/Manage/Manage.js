@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useProducts from '../Hooks/useProducts';
 
 const Manage = () => {
     const [products, setProducts] = useProducts([])
+    const navigate=useNavigate()
 
     const handleDelete=(id)=>{
         const proceed=window.confirm('Are you sure ?') 
@@ -15,6 +17,7 @@ const Manage = () => {
             .then(res=>res.json) 
             .then(data=>{
                 console.log(data)
+                toast('Item deleted')
             })
         }
 
@@ -31,6 +34,8 @@ const Manage = () => {
                     <thead>
                         <tr>
                             <th scope="col">Product Name</th>
+                            <th scope="col">Photo</th>
+
                             <th scope="col">Description</th>
                             <th scope="col">Supplier Name</th>
                             <th scope="col">Price</th>
@@ -47,12 +52,13 @@ const Manage = () => {
                                     <tr>
 
 
-                                        <td>{p.name}</td>
+                                        <td >{p.name} </td>
+                                        <td className='flex justify-center' ><img style={{height:'30px' ,width:'50px'}} src={p.img} /> </td>
                                         <td>{p.description}</td>
                                         <td>{p.suppier}</td>
                                         <td>{p.price}</td>
                                         <td>{p.quantity}</td>
-                                        <td><button onClick={()=>handleDelete(`${p._id}`)} >X</button></td>
+                                        <td><button className='text-danger font-bold' onClick={()=>handleDelete(`${p._id}`)} >X</button></td>
                                     </tr>
                                   
                               
@@ -63,6 +69,7 @@ const Manage = () => {
                     
                 </table>
             </div>
+            <button className='btn  btn-warning my-4' onClick={()=>navigate('/newitem')} >Add New Item</button>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import useItem from '../Hooks/useItem';
+import useProducts from '../Hooks/useProducts';
 
 const Inventory = () => {
 
@@ -11,8 +12,10 @@ const Inventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     const { id } = useParams()
- 
-    const [product, setProduct] = useItem(id)
+    
+     const [product, setProduct] = useItem(id)
+    
+
    
     
     const handleDelivered=e=>{
@@ -40,9 +43,9 @@ const Inventory = () => {
         e.preventDefault()
         const q= parseInt(product.quantity)
         const t=parseInt(e.target.q.value)
-        console.log(q,t)
+        
         const m=q+t
-        console.log(m)
+  
         const quantity= {m}
        
     
@@ -65,9 +68,9 @@ const Inventory = () => {
        
     }
     return (
-        <div className='w-50 mx-auto my-2' >
+        <div className='md:w-1/2 mx-auto my-2 sm:w-full' >
           
-            <form className='flex flex-col mb-4' onSubmit={handleSubmit(onSubmit)}>
+            <form className='flex flex-col mb-4 px-3' onSubmit={handleSubmit(onSubmit)}>
                 <h2 >Inventory</h2>
                 <div><img style={{height:'300px ' ,width:'100%'}} src={product.img} alt="" /></div>
                 <input placeholder='ID' value={id} className='border p-2 mb-2 ' {...register("id", { required: true})} />
@@ -80,7 +83,7 @@ const Inventory = () => {
                 <input className='border p-2 mb-2 btn btn-warning' onClick={handleDelivered} type="submit" value='Deliverd' />
             </form>
        
-            <form onSubmit={handleRestock} className='flex items-center mb-4'>
+            <form onSubmit={handleRestock} className='flex justify-center items-center mb-4 '>
                 <input className='border p-2 ' type='number' name='q' placeholder='Quantity'  /> 
                 <input className='border p-2  btn btn-warning' type="submit" value="Restock" />
             </form>

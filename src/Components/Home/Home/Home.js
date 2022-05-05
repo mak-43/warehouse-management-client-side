@@ -11,6 +11,8 @@ const Home = () => {
             <Banner/>
             <InventoryHome/>
             <button className='btn btn-warning my-5' onClick={()=>navigate('/manage')}>Manage Inventories</button>
+            <h2>Section 1</h2>
+            <h2>Section 2</h2>
         </div>
     );
 };
