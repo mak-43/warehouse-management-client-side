@@ -3,6 +3,7 @@ import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword,
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import './Login.css'
 const Login = () => {
     const [
@@ -63,7 +64,7 @@ const Login = () => {
                     <input className='text-black bg-gray-400 font-bold py-2 submit rounded-xl hover:text-blue-700 ' type="submit" value="Login" />
                 </form>
                 {
-                    loading ? 'Loading...' : ''
+                    loading ? <Loading/> : ''
                 }
                 {
                     errorElement

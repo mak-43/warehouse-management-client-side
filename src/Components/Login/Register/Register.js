@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
     const [
@@ -27,11 +29,11 @@ const Register = () => {
         const password=passwordRef.current.value  
        await createUserWithEmailAndPassword(email,password)
         await updateProfile({displayName:name})
-        alert('Updated profile')
+        toast('Registered')
         navigate('/')     
     }  
     if (error|| gerror||giterror) {     
-        errorElement=   <p className='text-red-700'>Error: {error?.message}{gerror?.message}{giterror?.message} </p>
+        errorElement=   <p className='text-red-700'> {error?.message}{gerror?.message}{giterror?.message} </p>
      }
     return (
         <div>
@@ -49,7 +51,7 @@ const Register = () => {
                     <input  className='text-black bg-gray-400 font-bold py-2 submit  rounded-xl hover:text-blue-700 ' type="submit" value="Sign Up" />
                 </form>
                 {
-                    loading?'Loading...':''
+                    loading?<Loading/>:''
                 }
                 {
                     errorElement

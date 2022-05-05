@@ -40,7 +40,7 @@ const Blogs = () => {
                 <AccordionItem>
                     <AccordionItemHeading>
                         <AccordionItemButton>
-                            when should you use node js and when you use mongodb
+                            When should you use node js and when you use mongodb
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
@@ -101,18 +101,6 @@ const Blogs = () => {
                     </AccordionItemPanel>
                 </AccordionItem>
             </Accordion>
-
-
-
-
-
-
-
-            4.what is the purpose of jwt and how does it work
-
-
-
-
         </div>
     );
 };
