@@ -19,7 +19,7 @@ import NewItem from './Components/NewItem/NewItem';
 import MyItems from './Components/MyItems/MyItems';
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
 
         <Header/>
         <Routes>
