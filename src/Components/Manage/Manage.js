@@ -5,10 +5,19 @@ import useProducts from '../Hooks/useProducts';
 const Manage = () => {
     const [products, setProducts] = useProducts([])
 
-    const handleDelete=(_id)=>{
-      
-        const id={_id}
-        console.log(id)
+    const handleDelete=(id)=>{
+        const proceed=window.confirm('Are you sure ?') 
+        if(proceed){
+            const url=`http://localhost:5000/delete/${id}`
+            fetch(url,{
+                method:'DELETE'
+            })
+            .then(res=>res.json) 
+            .then(data=>{
+                console.log(data)
+            })
+        }
+
        
 
     }
