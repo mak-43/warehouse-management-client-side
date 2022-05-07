@@ -1,21 +1,25 @@
 import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
     const [
         createUserWithEmailAndPassword,
+        user,
         error,
         loading
       ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
       
-      const [signInWithGoogle,  gerror] = useSignInWithGoogle(auth);
-      const [signInWithGithub,  giterror] = useSignInWithGithub(auth);
+      const [signInWithGoogle,  gerror,gloading] = useSignInWithGoogle(auth);
+      const [signInWithGithub,  giterror,gitloading] = useSignInWithGithub(auth);
       const [updateProfile, ] = useUpdateProfile(auth);
- 
+      const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+    
       const passwordRef=useRef('')
       const emailRef=useRef('')
       const nameRef=useRef('')
@@ -29,12 +33,14 @@ const Register = () => {
         const password=passwordRef.current.value  
        await createUserWithEmailAndPassword(email,password)
         await updateProfile({displayName:name})
+        navigate(from, { replace: true });
         toast('Registered')
-        navigate('/')     
+           
     }  
     if (error|| gerror||giterror) {     
         errorElement=   <p className='text-red-700'> {error?.message}{gerror?.message}{giterror?.message} </p>
      }
+    
     return (
         <div>
              <div className='form-container md:w-1/2 mx-auto py-10 my-10 sm:w-full'>
@@ -51,7 +57,7 @@ const Register = () => {
                     <input  className='text-black bg-gray-400 font-bold py-2 submit  rounded-xl hover:text-blue-700 ' type="submit" value="Sign Up" />
                 </form>
                 {
-                    loading?<Loading/>:''
+                    loading ||gloading||gitloading?<Loading/>:''
                 }
                 {
                     errorElement

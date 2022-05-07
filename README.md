@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Gadget Warehouse 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## live website link 
+[https://assignment-11-4c723.web.app/](https://assignment-11-4c723.web.app/)
 
-## Available Scripts
+## Client-side code Github repository 
+[https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-mak-43](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-mak-43) 
 
-In the project directory, you can run:
+##  Server-side code Github repository 
+[https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-mak-43](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-mak-43) 
 
-### `npm start`
+## Stackoverflow Question
+[https://stackoverflow.com/q/72156760/15940777](https://stackoverflow.com/q/72156760/15940777)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Notes 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ * Complete Gadgets Warhouse System 
+ * Each page have header(user can navigate pages) and a footer 
+ * landing page have a banner ,split inventory section where user can update thier product and extra two sections 
+ * In Manage Item pagee will show all the inventories are added by different users  and user can delete item  too 
+ * In add item page user can add a new item  
+ * In my item page user can see his own item which are added by himself and user can delete item 
 
-### `npm test`
+ #### Technologies 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. We use Firebase Hook for simplicity and user authentication 
+2. Tailwind Css framework for styling html and bootstrap
+3. Firebase for hosting
+4. React Route for creating protected route and SPA
+5. JWT for securities 
+6. React toastify for more interactive 

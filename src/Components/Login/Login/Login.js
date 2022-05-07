@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+
 import Loading from '../../Shared/Loading/Loading';
 import './Login.css'
 const Login = () => {
@@ -13,9 +15,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-
-    const [signInWithGoogle, guser, gerror] = useSignInWithGoogle(auth);
-    const [signInWithGithub, gituser, giterror] = useSignInWithGithub(auth);
+    // const [signInWithGoogle, guser,gloading, gerror] = useSignInWithGoogle(auth)
+    // 
+    const [signInWithGoogle,guser,gloading,gerror]=useSignInWithGoogle(auth)
+    const [signInWithGithub, gituser,gitloading, giterror] = useSignInWithGithub(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
     const [email, setEmail] = useState('')
@@ -30,16 +33,18 @@ const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate()
-    if (user || guser || gituser) {
-        
-    }
+  
+ 
+       
+    
 
     const handleSubmit = async e => {
         e.preventDefault()
       await  signInWithEmailAndPassword(email, password)
-       const {data}=await axios.post('http://localhost:5000/login',{email})
-       localStorage.setItem('accessToken',data.accessToken) 
-       navigate(from, { replace: true });
+       const {data}=await axios.post('https://murmuring-shelf-21130.herokuapp.com/login',{email})
+       localStorage.setItem('accessToken',data.accessToken)
+       navigate(from, { replace: true }); 
+      
 
     }
     let errorElement
@@ -68,7 +73,7 @@ const Login = () => {
                     <input className='text-black bg-gray-400 font-bold py-2 submit rounded-xl hover:text-blue-700 ' type="submit" value="Login" />
                 </form>
                 {
-                    loading ? <Loading/> : ''
+                    loading ||gloading ||gitloading ? <Loading/> : ''
                 }
                 {
                     errorElement
