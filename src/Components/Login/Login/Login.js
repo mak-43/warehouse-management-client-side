@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -30,13 +31,16 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate()
     if (user || guser || gituser) {
-        navigate(from, { replace: true });
+        
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
-        signInWithEmailAndPassword(email, password)
-        console.log(email, password)
+      await  signInWithEmailAndPassword(email, password)
+       const {data}=await axios.post('http://localhost:5000/login',{email})
+       localStorage.setItem('accessToken',data.accessToken) 
+       navigate(from, { replace: true });
+
     }
     let errorElement
     if (error || gerror || giterror) {

@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 
 const NewItem = () => {
     const [user] = useAuthState(auth)
-
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
@@ -27,9 +26,14 @@ const NewItem = () => {
     return (
         <div>
             <div className='w-50 mx-auto my-4'>
+                {
+                    console.log(user)
+                }
+
                 <form className='flex flex-col mb-4' onSubmit={handleSubmit(onSubmit)}>
                     <h2 className='mb-3'>Add new item</h2>
-                    <input value={user.email} className='border p-2 mb-2 ' readOnly {...register("email")} />
+                    
+                    <input value={user.email} className='border p-2 mb-2 ' readOnly  {...register("email")} />
                     <input placeholder='Product Name' className='border p-2 mb-2 ' {...register("name", { required: true })} />
                     <input placeholder='Photo url' className='border p-2 mb-2' {...register("img")} />
                     <textarea placeholder='Description' className='border p-2 mb-2' {...register("description")} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import useItem from '../Hooks/useItem';
@@ -15,8 +15,11 @@ const Inventory = () => {
 
     const [product, setProduct] = useItem(id)
 
-
-
+    
+    // const location = useLocation()
+    // let from = location.state?.from?.pathname || "/";
+    // const navigate = useNavigate()
+    // navigate(from, { replace: true });
 
     const handleDelivered = e => {
         const t = parseInt(product.quantity)
