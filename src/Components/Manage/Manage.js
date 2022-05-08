@@ -29,10 +29,10 @@ const Manage = () => {
         <div>
             <h2 className='my-3'>Manage inventories </h2>
 
-            <div>
+            <div className=''>
                 <table class="table ">
                     <thead>
-                        <tr>
+                        <tr className='grid md:grid-cols-7 sm:grid-cols-1'>
                             <th scope="col">Product Name</th>
                             <th scope="col">Photo</th>
 
@@ -49,7 +49,7 @@ const Manage = () => {
                         products.map(p =>
 
                             <tbody>
-                                <tr>
+                                <tr className='grid md:grid-cols-7 sm:grid-cols-1'>
 
 
                                     <td >{p.name} </td>
