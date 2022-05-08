@@ -12,8 +12,11 @@ const MyItems = () => {
     const [user] = useAuthState(auth)
 
     const [orders, setOrder] = useState([])
-   
+    const location = useLocation();
+    
     const navigate=useNavigate()
+    let from = location.state?.from?.pathname || "/";
+
     const [products, setProducts] = useProducts([])
     useEffect(() => {
 
@@ -22,11 +25,7 @@ const MyItems = () => {
 
             const url = `https://murmuring-shelf-21130.herokuapp.com/myitems?email=${email}`
            try{
-            const { data } = await axios.get(url,{
-                headers:{
-                    authorization:`Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
+            const { data } = await axiosPrivate.get(url)
             setOrder(data)
            }
            catch(error){

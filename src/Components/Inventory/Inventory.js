@@ -7,7 +7,10 @@ import useProducts from '../Hooks/useProducts';
 
 const Inventory = () => {
 
-
+    const navigate = useNavigate();
+    const location = useLocation();
+ 
+   let from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);

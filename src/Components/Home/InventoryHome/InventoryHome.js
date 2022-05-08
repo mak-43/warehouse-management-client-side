@@ -8,7 +8,7 @@ const InventoryHome = () => {
     
     return (
         <div className='p-2'>
-            <h2 className='my-3'>Inventories</h2>
+            <h2 className='text-4xl my-4'>Inventories</h2>
            <div className=' grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5  '>
            {
                products.slice(0,6).map(p=><Product

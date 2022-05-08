@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import useToken from '../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import Social from '../Social/Social';
 
 const Register = () => {
     const [
@@ -67,21 +68,21 @@ const Register = () => {
                     <hr className='w-1/5' /> OR <hr className='w-1/5' />
                 </div>
                 <div className='flex flex-col items-center justify-center '>
-                    <div onClick={()=>signInWithGoogle()}  className='w-1/2 flex justify-center items-center text-black gap-2 bg-gray-400  py-2 mt-2  rounded-xl hover:text-blue-700  '>
+                    {/* <div onClick={()=>signInWithGoogle()}  className='w-1/2 flex justify-center items-center text-black gap-2 bg-gray-400  py-2 mt-2  rounded-xl hover:text-blue-700  '>
                         <img className='h-8'  />
                         <button className='font-bold'> Google Sign In</button>
-                    </div>
+                    </div> */}
                     {/* <div className='w-1/2 flex justify-center items-center text-black  bg-gray-400  py-2 mt-2  rounded-xl hover:text-blue-700  '>
                         <img className='h-8 ' src={facebook} alt="" />
                         <button className='font-bold'> Facebook Sign In</button>
                     </div> */}
-                    <div onClick={()=>signInWithGithub()}  className='w-1/2 flex justify-center items-center text-black gap-2 bg-gray-400  py-2 mt-2  rounded-xl hover:text-blue-700  '>
+                    {/* <div onClick={()=>signInWithGithub()}  className='w-1/2 flex justify-center items-center text-black gap-2 bg-gray-400  py-2 mt-2  rounded-xl hover:text-blue-700  '>
                         <img className='h-8' />
                         <button className='font-bold'> Github Sign In</button>
-                    </div>
+                    </div> */}
 
                 </div>
-
+                <Social/>
             </div>
         </div>
     );
