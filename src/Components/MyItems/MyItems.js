@@ -41,7 +41,7 @@ const MyItems = () => {
         getOrders();
         
 
-    }, [user,orders,products])
+    }, [user,products])
 
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure ?')
