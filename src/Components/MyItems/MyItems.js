@@ -12,6 +12,7 @@ const MyItems = () => {
     const [user] = useAuthState(auth)
 
     const [orders, setOrder] = useState([])
+    
     const location = useLocation();
     
     const navigate=useNavigate()
@@ -40,7 +41,7 @@ const MyItems = () => {
         getOrders();
         
 
-    }, [user])
+    }, [user,orders,products])
 
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure ?')

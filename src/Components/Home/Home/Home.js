@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Banner from '../Banner/Banner';
+import Combo from '../Combo/Combo';
 import InventoryHome from '../InventoryHome/InventoryHome';
 import Reviews from './Reviews/Reviews';
 
@@ -13,7 +14,7 @@ const Home = () => {
             <InventoryHome/>
             <button className='btn btn-warning my-5' onClick={()=>navigate('/manage')}>Manage Inventories</button>
             <Reviews/>
-            <h2>Section 2</h2>
+            <Combo/>
         </div>
     );
 };

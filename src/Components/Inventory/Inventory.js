@@ -85,6 +85,7 @@ const Inventory = () => {
                 <input placeholder='Description' value={product.description} className='border p-2 mb-2' {...register("description")} />
                 <input placeholder='Supplier' value={product.suppier} className='border p-2 mb-2'{...register("supplier")} />
                 <input placeholder='Price' value={product.price} className='border p-2 mb-2'  {...register("price")} />
+                <input  value={'Sold - '+17} className='border p-2 mb-2'  {...register("sold")} />
                 <input placeholder='Quantity' value={product.quantity} className='border p-2 mb-2' type="number" {...register("quantity")} />
                 <input className='border p-2 mb-2 btn btn-warning' onClick={handleDelivered} type="submit" value='Deliverd' />
             </form>
